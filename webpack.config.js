@@ -1,8 +1,9 @@
 const path = require('path'),
   HtmlWebpackPlugin = require('html-webpack-plugin'),
   CopyWebpackPlugin = require('copy-webpack-plugin'),
-  MiniCssExtractPlugin = require('mini-css-extract-plugin');
-  ESLintPlugin = require('eslint-webpack-plugin');
+  MiniCssExtractPlugin = require('mini-css-extract-plugin'),
+  ESLintPlugin = require('eslint-webpack-plugin'),
+  CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 const isDev = process.env.NODE_ENV === 'development';
 const isProduction = !isDev;
@@ -86,6 +87,7 @@ module.exports = {
     }),
     // eslint-disable-next-line no-undef
     new ESLintPlugin(),
+    isDev ? '' : new CssMinimizerPlugin()
   ],
   module: getModuleConfig(),
   devtool: isDev ? 'source-map' : false,
