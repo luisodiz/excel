@@ -26,5 +26,6 @@ module.exports = {
     'linebreak-style': 0,
     'eol-last': 0,
     'max-len': 0,
+    'no-debugger': 0,
   },
 };
